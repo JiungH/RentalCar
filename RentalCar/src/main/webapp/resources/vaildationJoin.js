@@ -13,7 +13,6 @@ function checkForm(form) {
 		alert('주민번호를 입력하세요.')
 	} else {
 		form.submit();
-		
 	}
 }
 

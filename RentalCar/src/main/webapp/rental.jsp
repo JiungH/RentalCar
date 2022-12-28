@@ -13,8 +13,13 @@
 <jsp:include page="header.jsp"/>
 <body>
 <section>
-
+<%
+if(session.getAttribute("id") == null){
+		response.sendRedirect("login");
+	} 
+%>
 <h2>예약 가능 차량 보기</h2>
+
 <div class = "table-container">
 		<div>
 		<form method="post" action = "/RentalCar/posibleToBook.jsp">

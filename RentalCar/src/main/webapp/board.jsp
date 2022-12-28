@@ -12,6 +12,10 @@
 <body>
 <section>
 <%
+if(session.getAttribute("id") == null){
+	response.sendRedirect("login");
+} 
+int cnt = 0;
 BoardDao dao = BoardDao.getInstance();
 ArrayList<BoardDto> list = dao.getBoardAll();
 %>
@@ -30,9 +34,11 @@ ArrayList<BoardDto> list = dao.getBoardAll();
 			</tr>
 		</thead>
 		<tbody>
-			<%for(BoardDto board : list) {%>
+			<%for(BoardDto board : list) { 
+				cnt++;
+			%>
                 <tr>
-                    <td><%=board.getNo() %></td>
+                    <td><%=cnt%></td>
                     <td><a href="boardView?no=<%=board.getNo()%>"><%=board.getTitle() %></a></td>
                     <td><%=board.getUser() %></td>
                     <td><%=board.getRegDate() %></td>
