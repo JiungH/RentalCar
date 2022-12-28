@@ -1,0 +1,57 @@
+@charset "UTF-8";
+@import
+	url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100&family=Single+Day&display=swap')
+	;
+
+
+*{
+	text-align: center;
+	font-family: 'IBM Plex Sans KR', sans-serif;
+}
+.mytable {
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+	margin-top: 50px;
+	height: 52px;
+	width: 702px;
+}
+
+
+h2 {
+	margin: 50px;
+}
+
+table {
+	border-collapse: collapse;
+	border: solid 1px lightblue;
+}
+.button {
+	border: 0;
+	outline: 0;
+	background-color: white;
+	font-size: 18px;
+	margin: 10px;
+	cursor: pointer
+}
+input{
+	border-style:none;
+	height:30px;
+}
+
+#no{
+	background-color:#ddd;
+}
+
+#id{
+	background-color:#ddd;	
+}
+	
+.delete {
+    width: 240px;
+    margin: auto;
+}
+.joinForm {
+	width: 260px;
+	margin: auto;
+}
