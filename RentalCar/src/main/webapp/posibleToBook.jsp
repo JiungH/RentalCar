@@ -22,36 +22,17 @@
 			String eD = request.getParameter("endDate");
 			System.out.println(sD);
 			System.out.println(eD);
-			if(sD == "" || eD == ""){
-				%>
-				<script type="text/javascript"> 
-				alert('날짜를 모두 입력해주세요.'); 
-				location.href= "rental";
-				</script>
-				
-				<%
-				
-			}
-			
-			/* String[] startDate = request.getParameter("startDate").split("-");
-			String startDate2 = "";
-			for (int i = 0; i < startDate.length; i++) {
-				startDate2 += startDate[i];
-			}
-			int start = Integer.parseInt(startDate2);
+			if (sD == "" || eD == "") {
+		%>
+		<script type="text/javascript">
+			alert('날짜를 모두 입력해주세요.');
+			location.href = "rental";
+		</script>
 
-			String[] endDate = request.getParameter("endDate").split("-");
-			String endDate2 = "";
-			for (int i = 0; i < endDate.length; i++) {
-				endDate2 += endDate[i];
-			}
-			int end = Integer.parseInt(endDate2);
-
-			System.out.println(start);
-			System.out.println(end); */
-
-			CarDao carDao = CarDao.getInstance();
-			ArrayList<CarDto> cars = carDao.getCarALL();
+		<%
+		}
+		CarDao carDao = CarDao.getInstance();
+		ArrayList<CarDto> cars = carDao.getCarALL();
 		%>
 		<h2>예약 가능 차량 보기</h2>
 
@@ -68,21 +49,13 @@
 				</tbody>
 				<%
 				for (CarDto car : cars) {
-					/* 
-					시간별 추가예정
-					String [] RentTime = car.getRentTime().split("-");
-					int startTime = carDao.changeTime(RentTime);
-					
-					String [] ReturnTime = car.getReturnTime().split("-");
-					int endTime = carDao.changeTime(ReturnTime);
-					
-					 if(!(startTime < start && endTime > start && startTime < end && endTime > end)){
-					*/
 					if (!car.isCheck()) {
 				%>
 				<tr>
-					
-					<td style="width: auto;"><a href='/RentalCar/CarBookingAction?no=<%=car.getNo()%>&sd=<%=sD%>&ed=<%=eD%>' onclick="return confirm('예약하시겠습니까?');"><%=car.getName()%></a></td>
+
+					<td style="width: auto;"><a
+						href='/RentalCar/CarBookingAction?no=<%=car.getNo()%>&sd=<%=sD%>&ed=<%=eD%>'
+						onclick="return confirm('예약하시겠습니까?');"><%=car.getName()%></a></td>
 					<td style="width: auto;"><%=car.getColor()%></td>
 					<td><img src="<%=car.getImg()%>"
 						style="width: 200px; height: 200px;"></td>

@@ -28,8 +28,7 @@ ArrayList<BoardDto> list = dao.getBoardAll();
 				<th>no</th>
 				<th width="200px">title</th>
                 <th>user</th>
-                <th>regDate</th>
-                <th>modDate</th>
+                <th>Date</th>
                 <th>view</th>
 			</tr>
 		</thead>
@@ -41,8 +40,16 @@ ArrayList<BoardDto> list = dao.getBoardAll();
                     <td><%=cnt%></td>
                     <td><a href="boardView?no=<%=board.getNo()%>"><%=board.getTitle() %></a></td>
                     <td><%=board.getUser() %></td>
-                    <td><%=board.getRegDate() %></td>
-                    <td><%=board.getModDate() %></td>
+                    <%
+                   	String date = "";
+                    if(board.getModDate() == null){
+                    	date += board.getRegDate();
+                    }else{
+                    	date += board.getModDate();
+                    	date += "(수정)";
+                    }
+                    %>
+                    <td><%=date %></td>
                     <td><%=board.getViewCnt() %></td>
                 </tr>
             <%} %>

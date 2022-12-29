@@ -30,10 +30,6 @@ if(session.getAttribute("id") == null){
 			<input type = "submit" value="검색">
 		</form>
 		</div>
-		<!-- 
-		<table border = "1" class = "mytable">
-		</table> -->
-		<script src = "resources/rentalView.js"></script>
 </div>
 </section>
 <jsp:include page="footer.jsp"/>
